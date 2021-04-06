@@ -1,0 +1,41 @@
+Index: src/main/java/com/example/t3mb_decor/controller/CategoryController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.t3mb_decor.controller;\r\n\r\n\r\nimport com.example.t3mb_decor.model.Category;\r\nimport com.example.t3mb_decor.model.Customer;\r\nimport com.example.t3mb_decor.model.SubCategory;\r\nimport com.example.t3mb_decor.repository.CategoryRepository;\r\nimport com.example.t3mb_decor.repository.SubCategoryRepository;\r\nimport com.example.t3mb_decor.service.CategoryService;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.stereotype.Controller;\r\nimport org.springframework.web.bind.annotation.*;\r\n\r\n\r\nimport java.io.Console;\r\nimport java.text.SimpleDateFormat;\r\nimport java.util.ArrayList;\r\nimport java.util.Date;\r\nimport java.util.List;\r\n@RequestMapping(\"/category\")\r\n@RestController\r\npublic class CategoryController {\r\n\r\n    @Autowired\r\n    private CategoryService categoryService;\r\n\r\n\r\n    @GetMapping\r\n    public List<Category> viewCategory(){\r\n        return categoryService.getAllCategories();\r\n    }\r\n    @PostMapping\r\n    public Category saveCategory(@RequestBody Category category){\r\n//        category = cate.findById((long) 1).get();\r\n//        List<SubCategory> subCategory;\r\n//        subCategory = category.getSub();\r\n//        for (SubCategory value : subCategory) {\r\n//            if (value.getName().equals(\"Short-Table\")) {\r\n//                value.setName(\"Short Table\");\r\n//            }\r\n//            if (value.getName().equals(\"Long-Table\")) {\r\n//                value.setName(\"Long Table\");\r\n//            }\r\n//            if (value.getName().equals(\"Medium-Table\")) {\r\n//                value.setName(\"Medium Table\");\r\n//            }\r\n//        }\r\n        //category.setSub(subCategory);\r\n        //cate.save(category);\r\n        categoryService.saveCategory(category);\r\n        return category;\r\n    }\r\n\r\n    @PostMapping(path = \"{id}\")\r\n    public Category editCategory(@PathVariable(\"id\") long id, @RequestBody Category categoryUpdate){\r\n        categoryService.updateCategory(id, categoryUpdate);\r\n        return categoryUpdate;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/example/t3mb_decor/controller/CategoryController.java	(revision 0af19d88ab3370bdb07e418a9849aec10a8fcfe3)
++++ src/main/java/com/example/t3mb_decor/controller/CategoryController.java	(date 1600698461553)
+@@ -51,6 +51,7 @@
+         return category;
+     }
+ 
++
+     @PostMapping(path = "{id}")
+     public Category editCategory(@PathVariable("id") long id, @RequestBody Category categoryUpdate){
+         categoryService.updateCategory(id, categoryUpdate);
+Index: src/main/resources/templates/bin.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html xmlns:th =\"https://www.thymeleaf.org\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Form</title>\r\n</head>\r\n<body>\r\n    <div align=\"center\">\r\n        <form action=\"#\" th:action=\"@{/category}\" th:object=\"${category}\" method=\"post\">\r\n            <label>Name:</label>\r\n            <input type=\"text\" th:field=\"*{name}\" /><br>\r\n            <button type=\"submit\">Submit</button>\r\n        </form>\r\n    </div>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/bin.html	(revision 0af19d88ab3370bdb07e418a9849aec10a8fcfe3)
++++ src/main/resources/templates/bin.html	(date 1600699899075)
+@@ -5,6 +5,7 @@
+     <title>Form</title>
+ </head>
+ <body>
++
+     <div align="center">
+         <form action="#" th:action="@{/category}" th:object="${category}" method="post">
+             <label>Name:</label>
+@@ -13,4 +14,4 @@
+         </form>
+     </div>
+ </body>
+-</html>
+\ No newline at end of file
++</html>

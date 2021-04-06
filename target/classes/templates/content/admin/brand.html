@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layouts/admin_layout/admin_layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Brand</title>
+    <style>
+        #table-item:hover{
+            cursor: pointer;
+        }
+
+        #card_info{
+            margin-bottom: 30px;
+        }
+        #sub-cate{
+            border-radius: 10px;
+            display: none;
+            border: 1px solid gray;
+        }
+
+        th{
+            color: rgb(110, 110, 110);
+        }
+
+        #title{
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</head>
+<body >
+<div layout:fragment="content">
+<!--   Toan -->
+
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Brand</h1> <a th:href="@{/admins/brand}" class ="btn btn-primary m-2">Add Brand</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Catalog</a></li>
+                            <li class="breadcrumb-item active">Brand</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div th:if="${param.successAdd}">
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        Brand added successful!!
+                    </div>
+                </div>
+                <div th:if="${successUpdate != null}">
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <p th:text="${successUpdate}" style="margin: 0"></p>
+                    </div>
+                </div>
+                <script>
+                    $(".alert").fadeTo(3000, 500).slideUp(500, function(){
+                        $(".alert").slideUp(500);
+                    });
+                </script>
+                <div class="card card-info" id="card_info">
+                        <th:block th:if="${brand.id == 0}">
+                            <div class="card-header">
+                                <h3 class="card-title">New Brand</h3>
+                            </div>
+                            <form action="#" th:action="@{/admins/brand/add}" th:object="${brand}" method="post">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="input-group-prepend">
+                                                <input type="hidden" th:field="*{id} " />
+                                                <input type="text" th:field="*{name} " class="form-control" placeholder="Enter Brand" required />
+                                                <button type="submit" class="btn btn-outline-success mx-4" onclick="Add()">Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </th:block>
+                        <th:block th:unless="${brand.id == 0}">
+                            <div class="card-header">
+                                <h3 class="card-title">Update Brand</h3>
+                            </div>
+                            <form action="#" th:action="@{/admins/brand/add}" th:object="${brand}" method="post">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="input-group-prepend">
+                                            <input type="hidden" th:field="*{id} " />
+                                            <input type="text" th:field="*{name} " class="form-control" placeholder="Enter Brand" required />
+                                            <button type="submit" class="btn btn-outline-success mx-4" onclick="Add()">Update</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </th:block>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr class="table-info">
+                                <th scope="col" style="width: 90%;">Name</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody th:each ="brand : ${listBrands}">
+                            <tr>
+                                <td id="table-item">
+                                    <a th:href="@{/admins/brand/update/{id}(id = ${brand.id})}" style="color: #000;" >
+                                    <div th:text="${brand.getName()}"></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a th:href="@{/admins/brand/delete/{id}(id = ${brand.id})}" onclick="return confirm('Are you sure you want to Delete?')" class="btn btn-outline-danger"> Delete</a>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div><!-- /.container-fluid -->
+
+        </section>
+        <!-- /.content -->
+
+</div>
+
+</body>
+
+</html>
+

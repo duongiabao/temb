@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+                layout:decorate="~{layouts/layout}">
+    <head>
+        <title>List Categories</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <a th:href="@{/category/add}" class ="btn btn-primary">Add Category</a>
+
+            <th:block th:if="${addsub_cate_id != null}">
+                <a th:href="@{/category/add-sub/{id}(id = ${cate.id})}" class ="btn btn-primary">Add Sub-Category</a>
+            </th:block>
+            <div class="row">
+                <div class="col-6">
+                    <ul th:each ="cate : ${listCate gories}">
+                        <li > <a th:href="@{/category/update/{id}(id = ${cate.id})}"> <span th:text="${cate.getName()}"></span> </a>
+                            <ul th:each="subcate :${cate.getSub()}">
+                                <li th:text="${subcate.name}"> </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a th:href="@{/category/delete/{id}(id = ${cate.id})}" class ="btn btn-danger">Delete</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <th:block th:if="${flag == null}">
+                        <th:block th:if="${cate_id == null}">
+                            <form action="#" th:action="@{/category/add}" th:object="${cate}" method="post">
+                                <label>Name:</label>
+                                <input type="hidden" th:field="*{id} " /><br>
+                                <input type="text" th:field="*{name} " /><br>
+                                <button type="submit">Submit</button>
+                            </form>
+                        </th:block>
+                        <th:block th:unless="${cate_id == null}">
+                            <form action="#" th:action="@{/category/add-sub/{id}(id = ${cate_id})}" th:object="${subCate}" method="post">
+                                <label>Name:</label>
+                                <input type="hidden" th:field="*{id} " /><br>
+                                <input type="text" th:field="*{name} " /><br>
+                                <button type="submit">Submit</button>
+                            </form>
+                        </th:block>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

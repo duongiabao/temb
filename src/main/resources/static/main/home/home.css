@@ -1,0 +1,521 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+.home {
+    background:url("logo1.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+nav{
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+}
+nav .color a ,nav .color{
+    text-decoration: none;
+    color: #999;
+}
+/*,.con nav .icon-search*/
+nav a {
+    text-decoration: none;
+    color: #999;
+    font-size: 20px;
+}
+nav .login{
+    color: #999;border-color: #999;
+}
+/* start navigation */
+.top-auto {
+    top:auto
+}
+
+#products a{
+    text-decoration: none;
+}
+#products a:hover,.sticky #products a:hover{
+    color: #999;
+}
+#logo-img {
+    height: 40px;
+}
+nav.sticky {
+    position: fixed;
+    width: 100%;
+    /*position: sticky;*/
+    /*position: -webkit-sticky;*/
+    top: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+/*nav .login{*/
+/*    color: #fff;border-color: #fff;*/
+/*}*/
+nav.sticky .login{
+    color: #999;border-color: #999;
+}
+nav.sticky .login:hover{
+    color: #000;border-color: #000;
+}
+nav .login:hover{
+    color: #000;
+    border-color: #000;
+}
+nav .color a:hover,nav .color:hover{
+    color: #000;
+}
+nav {
+    position: relative;
+    transition: 0.6s;
+    z-index: 10000;
+    /* background-color: #FFF; */
+
+}
+#sign .nav-item a{
+    color: #999;
+}
+/*nav a {*/
+/*    text-decoration: none;*/
+/*    color: #FFF;*/
+/*    font-size: 20px;*/
+/*}*/
+nav a:hover {
+    color: #000;
+}
+nav .login:hover{
+    color: #000;
+    border-color: #000;
+}
+nav.sticky .color a {
+    text-decoration: none;
+    color: #999;
+}
+nav.sticky .color a:hover {
+    color: #000;
+}
+nav.sticky .color {
+    text-decoration: none;
+    color: #999;
+}
+nav.sticky .color:hover {
+    color: #000;
+}
+
+.nav-icon-cart-quanti {
+    border: 1px solid black;
+}
+.nav-banner {
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-height: 800px;
+    /* background: url(logo1.jpg); */
+    background-size: cover;
+    /*background-color: black;*/
+    /*opacity: .5;*/
+    color: #FFF;
+    display: flex;
+    align-items: center;
+}
+.nav-banner h2 {
+    text-shadow: 0 2px 0 rgba(0, 0, 0,0.5);
+    font-size: 50px;
+}
+.nav-banner p {
+    line-height: 32px;
+    font-size: 25px;
+}
+.nav-banner a {
+    text-decoration: none;
+    display: inline-block;
+    color: #FFF;
+    border: 1px solid #EE2B53;
+    border-radius: 10px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+}
+.nav-banner a:hover {
+
+    background-color: #EE2B53;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+.nav-banner span {
+    font-size: 100px;
+}
+.nav-banner span::before {
+    content: '';
+    animation: animate infinite 8s;
+}
+@keyframes animate {
+    0%{
+        content: 'Team';
+    }
+    20%{
+        content: 'TeMB';
+    }
+    40%{
+        content: 'Developer';
+    }
+    60%{
+        content: 'Designer';
+    }
+    80%{
+        content: 'Photographer';
+    }
+    100%{
+        content: 'TeMB Decor';
+    }
+}
+.navbar-nav li:hover > div.dropdown-menu {
+    display: block;
+}
+.navbar-nav li:hover > ul.dropdown-menu {
+    display: block;
+}
+/*.navbar-nav a {*/
+/*    color: #fff;*/
+/*}*/
+.nav-drop {
+    background-color: #1d1d1d;
+    opacity: 0.9;
+    color: #fff;
+}
+.icon-search {
+    color: #FFF;
+}
+nav.sticky .icon-search ,nav .icon-search{
+    color: #fff;
+}
+/*nav.sticky .icon-search:hover {*/
+/*    color: #000;*/
+/*}*/
+/* end navigation */
+.modal-body .search:focus {
+    width: 600px;
+}
+
+/* end madal */
+
+.news {
+
+    min-height: 700px;
+    padding-top: 130px;
+    background-color: #FFF;
+}
+.titleNews {
+    text-align: center;
+    font-size: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-transform: uppercase;
+}
+.salenews{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.img-news {
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+.home .form-control {
+    width: 90%;
+    display: inline-block;
+}
+.home .form-control:focus {
+    box-shadow: none;
+}
+
+.home .form-control-underlined {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    padding-left: 0;
+}
+/*.form-control::placeholder {*/
+/*    font-size: 30px;*/
+/*    color: #aaa;*/
+/*    font-style: italic;*/
+/*}*/
+/* end News */
+
+.slogan {
+    height: 900px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    opacity: .7;
+}
+.slogan-text {
+    margin: 0 auto;
+}
+.slogan .slogan-text p{
+    color: #FFF;
+    font-size: 40px;
+}
+/* end slogan */
+
+.gallery-cate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    min-height: 700px;
+}
+.gallery-cate a {
+    text-decoration: none;
+}
+.gallery-title {
+    min-height: 150px;
+    width: 300px;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.gallery-title p {
+    font-size: 30px;
+    font-weight: 600;
+    color: #FFF;
+
+}
+.img-gallery {
+    height: auto;
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+/* end gallery-cate */
+
+.album .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.album .column {
+    flex: 25%;
+    max-width: 33.3%;
+    padding: 0 4px;
+}
+
+.album .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+    filter: grayscale(1) brightness(0.5);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s linear;
+}
+.album .column img:hover {
+    filter: grayscale(0);
+}
+@media screen and (max-width: 800px) {
+    .album .column {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .album .column {
+        flex: 100%;
+        max-width: 100%;
+    }
+    .album .column img {
+        filter: grayscale(0) brightness(1);
+    }
+}
+
+/* end album  */
+
+
+/*footer*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+.content1{
+    position: relative;
+    margin: 130px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+.content1 .text{
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #202020;
+}
+.content1 .p{
+    font-size: 2.1875rem;
+    font-weight: 600;
+    color: #202020;
+}
+footer{
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    background: #211E1E;
+    color: #FFF;
+    padding: 100px 0 40px;
+}
+.main-content{
+    display: flex;
+}
+.main-content .box{
+    flex-basis: 50%;
+}
+.box h2{
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.box .content{
+    margin: 20px 0 0 0;
+    position: relative;
+}
+.box .content:before{
+    position: absolute;
+    content: '';
+    top: -10px;
+    height: 2px;
+    width: 100%;
+    background: #211E1E;
+}
+.box .content:after{
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 15%;
+    background: #C7DB9C;
+    top: -10px;
+}
+.left .content p{
+    text-align: justify;
+}
+.left .content .social{
+    margin: 20px 0 0 0;
+}
+.left .content .social a{
+    padding: 0 2px;
+}
+.left .content .social a span{
+    height: 40px;
+    width: 40px;
+    background: #FFF;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.left .content .social a span:hover{
+    background: #C7DB9C;
+}
+.center .content .fas{
+    font-size: 1.4375rem;
+    background: #211E1E;
+    height: 45px;
+    width: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.center .content .fas:hover{
+    background: #C7DB9C;
+}
+.center .content .text{
+    font-size: 1.0625rem;
+    font-weight: 500;
+    padding-left: 10px;
+}
+.center .content .phone{
+    margin: 15px 0;
+}
+.right form .text{
+    font-size: 1.0625rem;
+    margin-bottom: 2px;
+    color: #FFF;
+}
+.right form .msg{
+    margin-top: 10px;
+}
+.right form input, .right form .msgForm{
+    width: 100%;
+    font-size: 1.0625rem;
+    background: #FFF;
+    padding-left: 10px;
+    border: 1px solid #222222;
+}
+.right form input:focus,
+.right form .msgForm:focus{
+    outline-color: #3498db;
+}
+.right form input{
+    height: 35px;
+}
+.right form .btn-send{
+    margin-top: 10px;
+}
+.right form .btn-send button{
+    height: 40px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #C7DB9C;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .3s;
+}
+.right form .btn-send button:hover{
+    opacity: 0.7;
+}
+.bottom center{
+    padding: 5px;
+    font-size: 0.9375rem;
+    background: #151515;
+}
+.bottom center span{
+    color: #656565;
+}
+.bottom center a{
+    color: #f12020;
+    text-decoration: none;
+}
+.bottom center a:hover{
+    text-decoration: underline;
+}
+@media screen and (max-width: 900px) {
+    footer{
+        position: relative;
+        bottom: 0px;
+    }
+    .main-content{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .main-content .box{
+        margin: 5px 0;
+    }
+}
+.sub-cate a:hover{
+    color: #FFF !important;
+}
+.title-cate .cate-title-big {
+    color: #FFFFFF;
+}
+.credit a {
+    color: #C7DB9C;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/main_layout/main}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+<style>
+    .invalid-feedback{
+        font-size: 14px;
+        font-weight: 600;
+        text-align: left;
+    }
+</style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+<body class="pr">
+<div layout:fragment="contents">
+    <div class="profile">
+        <section class="Form m-5">
+            <div th:if="${param.successUpdate}">
+                <div class="alert alert-success alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    User is updated successfully !!
+                </div>
+            </div>
+            <div th:if="${param.successUpdatePwd}">
+                <div class="alert alert-success alert-dismissible fade showv">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    Password is updated successfully !!
+                </div>
+            </div>
+            <script>
+                $(".alert").fadeTo(3000, 500).slideUp(500, function(){
+                    $(".alert").slideUp(500);
+                });
+            </script>
+            <div class="container">
+                <h5 class="mb-4 mt-3" style="text-align: center;">Basic info, like your name and photo, that you use on TeMB services</h5>
+                <div class="row row-card no-gutters mt-2">
+                    <div class="col-lg-12 px-5 pt-5 pb-2">
+                        <h4>Profile</h4>
+                        <hr>
+                        <form th:action="@{/profile/update}" id="pro-form" th:object="${InfoUser}" method="post">
+                            <input type="hidden" th:field="*{id} " />
+                            <div class="row  mt-2">
+                                <div class="col-lg-3">
+                                    <label for="pro-name" class="type-text">Name</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="text" th:field="*{name}" class="form-control type-input" id="pro-name" name="name" placeholder="Your name" th:errorClass="is-invalid">
+                                    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row  mt-2">
+                                <div class="col-lg-3">
+                                    <label for="pro-name" class="type-text">Email</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="email" th:field="*{email}" class="form-control type-input" id="pro-email" name="email" placeholder="Your email" th:errorClass="is-invalid">
+                                    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row  mt-2">
+                                <div class="col-lg-3">
+                                    <label for="pro-name" class="type-text">Phone</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="text" th:field="*{phone}" class="form-control type-input" id="pro-phone" name="phone" placeholder="Your phone" th:errorClass="is-invalid">
+                                    <div th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row  mt-2">
+                                <div class="col-lg-3">
+                                    <label for="pro-name" class="type-text">Address</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="text" th:field="*{address}" class="form-control type-input" id="pro-address" name="address" placeholder="Your address" th:errorClass="is-invalid">
+                                    <div th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-dark p-2 m-2">Update Info</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row row-card no-gutters mt-5">
+                    <div class="col-lg-12 px-5 pt-5 pb-2">
+                        <h4>Password</h4>
+                        <hr>
+                        <form th:action="@{/profile/updatePwd}" id="pass-form" th:object="${InfoPwd}" method="post">
+                            <div th:field="*{id}">
+                                <input type="hidden" th:field="${InfoUser.id}">
+                            </div>
+                            <div class="row  mt-2">
+                                <div class="col-lg-3">
+                                    <label for="pro-name" class="type-text">Old password</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="password" th:field="*{oldPwd}" class="form-control type-input" id="pass-old" name="oldpass" placeholder="Old passowrd" th:errorClass="is-invalid">
+                                    <div th:if="${#fields.hasErrors('oldPwd')}" th:errors="*{oldPwd}" class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row  mt-2">
+                                <div class="col-lg-3">
+                                    <label for="pro-name" class="type-text">New password</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="password" th:field="*{password}" class="form-control type-input" id="pass-new" name="newpass" placeholder="New password" th:errorClass="is-invalid">
+                                    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row  mt-2">
+                                <div class="col-lg-3">
+                                    <label for="pro-name" class="type-text">Confirm new  password</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <input type="password" th:field="*{rpassword}" class="form-control type-input" id="pass-confirm" name="comfirmpass" placeholder="Confirm new password" th:errorClass="is-invalid">
+                                    <div th:if="${#fields.hasErrors('rpassword')}" th:errors="*{rpassword}" class="invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-dark p-2 m-2">Update Password</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="/main/profile/profile-validate.js"></script>
+</div>
+</body>
+</html>

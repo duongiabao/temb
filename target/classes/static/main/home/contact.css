@@ -1,0 +1,40 @@
+.contact .address a{
+    text-decoration: none;
+    color: #b3b3b3;
+}
+.contact .address h5{
+    font-weight: bold;
+
+}
+.contact .col-md-12 h3{
+    letter-spacing: 4px;
+    font-weight: bold;
+    margin-top: 80px;
+}
+.contact .form-row{
+    margin-bottom: 4px;
+}
+
+.con nav .icon-search{
+    color: #fff;
+}
+.con nav.sticky .icon-search:hover{
+    color: #fff;
+}
+/*.con nav .login{*/
+/*    color: #999;border-color: #999;*/
+/*}*/
+/*.con nav{*/
+/*    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);*/
+
+/*}*/
+/*.con nav .color a {*/
+/*    text-decoration: none;*/
+/*    color: #999;*/
+/*}*/
+/*!*,.con nav .icon-search*!*/
+/*.con nav a {*/
+/*    text-decoration: none;*/
+/*    color: #999;*/
+/*    font-size: 20px;*/
+/*}*/
